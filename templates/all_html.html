@@ -1,0 +1,108 @@
+<!-- Table of Contents HTML Template  -->
+
+{% extends "base.html" %}
+
+{% block all_html %}
+
+
+<div id = "outer">
+	<div id="inner"></div>
+<!-- Start of Home Content -->
+	  	<div style="display:none"  id="home" >
+			<div class="container">
+				<div class="Greeting">
+					<p>Welcome to my Page!</p>
+						<div class="InnerTOC">
+							<p>This webpage uses Python with Google App Engine (GAE) as the server, while Jinja2 is used for templating,  CSS was used to control styling, and JQuery is used to load the different content. JQuery was also used for the navigation bar animations giving a smoother user experience. I combined the use of GAE Datastore to store the comments and Geo Point Locations of users leaving comments. IP address were translated into Geo Coordinates via Host IP's API and mapped with Google Map API.</p>
+							<br><br>
+							<b>Stay Tuned for more Updates!</b>
+						</div>
+				</div>
+<!-- Insert Picture Scroller, have not inserted yet -->
+				<div class= "PictureScroller">
+
+				</div>
+<!-- End of Picture Scroller -->
+			</div>
+<!-- Start of Comments Box -->
+		<div class="container">
+			<div class="Comment">
+				<form method = "post" action = "/sign?" height>
+					<div>
+						<label> 
+							Please leave me comments:<br><br>						
+								<textarea name="post_content" rows="3" cols="60" class = "TextBox"></textarea>
+						</label>
+					</div>
+
+					<div>Your Name: 
+						<input type="text" name="user" value = "Anonymous">
+						<input type = "submit" class="myButton" value="Post Comment">
+					</div>
+					<br>						
+					<div class = "Status"> {{status | safe}} </div>
+					<br>
+				</form>
+					
+				<div class="commentbox">
+					<form method = "get" action = "/?">
+						{% for comment in comments %}
+						<br>
+
+							<div>{{comment.post_content}}</div>
+							<div class ="User">By <b>{{comment.user}}</b> at {{comment.date}}</div>
+						
+						<br>
+						{% endfor %}
+					</form>
+				</div>
+			</div>
+				
+				<div class="map">
+				Commenter's Locations!<br>
+					{% if img_url %}
+					<img  src="{{ img_url }}" style="display: block; margin: 0 auto;">
+					{% endif %}
+				</div>
+<!-- End of Comments Box -->
+		</div>
+	</div>
+<!-- 	End of Home Content -->
+
+
+<!-- Start of Lessons Content -->
+
+  		{{body | safe}}
+
+<!-- 	End of Lessons Content -->
+
+
+<!-- Start of About Me Content -->
+	<div style="display:none"  id="aboutme" >
+		<div class="container">
+			<div class="Greeting"/>
+				<p style= "color:white">Hello my name is Paul.</p>
+						<div class="InnerTOC">
+							<p>I have always been interested in software development and made this page to implement some of the skills I have learned throughout my training. I am engineer that leverages years of academic, venture, and industrial experience with knowledge in software development to bring innovative problem solving skills to add value to any organization. I was an associate for a venture capital group, but now want to make the switch to software engineering as I have found my passion is in software development.</p>
+							<br>
+							<p>My experience includes:</p>
+								<ul>
+									<li>Managed 10+ portfolio companies and projects that had a total investment of over $2.5 million</li>
+									<li>Managed 10+ portfolio companies and projects that had a total investment of over $2.5 million</li>
+									<li>1 granted patent, 10 published papers (4 first author), and 2 published book chapters</li>
+									<li>Knowledge in several computer languages such as Java, Python, and HTML</li>
+								</ul>
+							<br><br>
+							<b>Stay Tuned for more Updates!</b>
+						</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+<!-- End of About Me Content -->
+
+
+
+{% endblock %}
+

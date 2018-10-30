@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Paul's Udacity Nanodegree Project</title>
+		<link style = "text/css" rel="stylesheet" href ="/stylesheets/styles.css" />
+		<script src="/javascripts/jquery.js" type="text/javascript"></script>
+
+		<script type="text/javascript">		
+		$(document).ready(function() {		
+			$('#inner').fadeOut('slow',function(){	
+			$('#inner').html($('#home').html()); // loads default page
+		        $('#inner').fadeIn('slow'); 
+		    });
+			$('li').hover(function() {
+				$(this).find('ul>li').fadeToggle(400);   //hover script
+				}); 
+		    $('#linkLesson-1').click(function(){
+		        $('#inner').fadeOut('slow',function(){	
+		            $('#inner').html($('#Lesson-1').html());
+		               $('#inner').fadeIn('slow');
+		        }); });            
+		    $('#linkLesson-2').click(function(){
+		        $('#inner').fadeOut('slow',function(){	
+		            $('#inner').html($('#Lesson-2').html());
+		               $('#inner').fadeIn('slow');
+		        }); });
+		     $('#linkLesson-3').click(function(){
+		        $('#inner').fadeOut('slow',function(){	
+		            $('#inner').html($('#Lesson-3').html());
+		               $('#inner').fadeIn('slow');   
+				}); });
+		    $('#linkLesson-4').click(function(){
+		        $('#inner').fadeOut('slow',function(){	
+		            $('#inner').html($('#Lesson-4').html());
+		               $('#inner').fadeIn('slow');
+		        }); });
+		    $('#linkLesson-5').click(function(){
+		        $('#inner').fadeOut('slow',function(){	
+		            $('#inner').html($('#Lesson-5').html());
+		               $('#inner').fadeIn('slow');
+		        }); });
+		    $('#linkabout-me').click(function(){
+		        $('#inner').fadeOut('slow',function(){	
+		            $('#inner').html($('#aboutme').html());
+		               $('#inner').fadeIn('slow');
+		        }); });
+		    $('#linkhome').click(function(){
+		        $('#inner').fadeOut('slow',function(){	
+		            $('#inner').html($('#home').html());
+		               $('#inner').fadeIn('slow');
+		        });        
+		    }); 
+		})
+		</script>
+		<script>
+			function changeImage() {
+			    var image = document.getElementById('myImage');
+			    if (image.src.match("bulbon")) {
+			        image.src = "images/pic_bulboff.gif";
+			    } else {
+			        image.src = "images/pic_bulbon.gif";
+			    }
+			}
+		</script>
+	</head>
+
+<body>
+	<header>
+		<div class="Title">
+			Paul's Udacity<br>Nanodegree Project
+<!-- Navigator Bar -->
+				<div class="nav">
+					<ul>
+						<li><a href="/" id="linkhome">Home</a></li>
+						<li><a href="#">Lessons</a>
+							<ul>
+								{{toc | safe}}
+
+							</ul>
+						</li>
+						<li><a href="#" id="linkabout-me">About Me</a></li>
+
+					</ul>
+				</div>
+<!-- End of Navigator Bar -->
+		</div>
+
+	</header>
+		{% block all_html %}
+
+		{% endblock %}
+
+	<div id="footer">By Paul Lee</div>
+</body>
+
+</html>
