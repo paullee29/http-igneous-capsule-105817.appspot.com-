@@ -1,6 +1,4 @@
-application: igneous-capsule-105817
 runtime: python27
-version: 1
 api_version: 1
 threadsafe: yes
 
