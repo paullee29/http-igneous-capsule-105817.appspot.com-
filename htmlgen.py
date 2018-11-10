@@ -81,10 +81,11 @@ def get_coords(ip):
 		if coords and coords[0].childNodes[0].nodeValue:
 			lon, lat = coords[0].childNodes[0].nodeValue.split(',')
 			return ndb.GeoPt(lat, lon)
-GMAPS_URL = "http://maps.googleapis.com/maps/api/staticmap?size=480x480&sensor=false&"
+GMAPS_URL = "http://maps.googleapis.com/maps/api/staticmap?size=480x480&sensor=false&key=AIzaSyBGNneisQeayH5y-hzNqyPSSuS-Ih_lplk&"
 
 def gmaps_img(points):
-	markers = '&'.join('markers=%s,%s' % (p.lat, p.lon) for p in points)
+	amp = '&'
+	markers = amp.join('markers=%s,%s' % (p.lat, p.lon) for p in points)
 	return GMAPS_URL + markers
 
 #####
